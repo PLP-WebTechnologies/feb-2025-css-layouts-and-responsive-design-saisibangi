@@ -1,26 +1,95 @@
-# CSS Layouts and Responsive Design
+/*CSS Layouts and Responsive Design Assignment*/
+/*html*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <section class="hero">This is a responsive page</section>
+        <section class="features">
+            <div class="feature">Feature 1</div>
+            <div class="feature">Feature 2</div>
+            <div class="feature">Feature 3</div>
+        </section>
+    </main>
+</body>
+</html>
+/*Flexbox for layout in style.css*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 15px;
+    background-color: #333;
+}
 
-## Objectives
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+}
 
-Implement Flexbox and Grid for layout design.
-Make the webpage responsive using media queries.
-Ensure proper alignment and spacing.
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
 
-## Instructions
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
 
-- use Flexbox or CSS Grid.
-- Add a navigation bar and structure the content.
-- Use media queries to adjust layout for mobile, tablet, and desktop.
+.feature {
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 5px;
+}
+/*Using CSS Grid instead*/
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
 
->[!NOTE]
->  - Include at least:
->  - navigation bar
->  - media queries
-
-# Tasks
-
-- Apply Flexbox or Grid for layout.
-- Make the page responsive.
-- Test across different screen sizes.
-
-Happy Coding! 💻✨
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+/*Adding responsive design with media queries*/
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar ul {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/*Alternatively, if using Grid*/
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
